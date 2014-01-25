@@ -32,6 +32,11 @@ Serve files out of `webroot` whenever `namespace` is asked for. Typically `names
 Logs the request to outstream in the Common Log Format when the response is written. Defaults to stdout if not provided.
 
 
+### gulphttpd.setHeader(name, value)
+
+Calls response.setHeader on every HTTP request going through. Useful for setting the Content-Type, Server, or similar headers.
+
+
 ### gulphttpd.dest()
 
 Writes the formatted file to the HTTP response, which was stored in the `stats.http` object during the `gulphttpd.src` call (so no arguments are needed).
