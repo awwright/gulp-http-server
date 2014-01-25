@@ -8,6 +8,7 @@ var server = require('http').createServer();
 server.listen(listenPort);
 
 gulphttpd.src(server, __dirname+'/', '/')
+	.pipe(gulphttpd.log(process.stdout))
 	.pipe(require('gulp-markdown')())
 	.pipe(gulphttpd.dest());
 
