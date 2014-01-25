@@ -14,7 +14,6 @@ function httpdSrc(httpd, webroot, namespace) {
 	var requestStream = through({objectMode:true});
 
 	httpd.on('request', function(req, res){
-		console.log('request', req.url);
 		var location = url.resolve('http://'+(req.headers.host||'localhost'), req.url);
 		var parts = url.parse(location);
 		if(parts.pathname.substring(0,3)==='/..'){
@@ -29,7 +28,6 @@ function httpdSrc(httpd, webroot, namespace) {
 		}else if(location.substring(namespace.length)===namespace){
 			filename = webroot + location.substring(namespace.length);
 		}
-		console.log('filename', filename);
 		var contents;
 		try{
 			contents = fs.readFileSync(filename);
