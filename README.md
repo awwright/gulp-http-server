@@ -32,6 +32,14 @@ Serve files out of `webroot` whenever `namespace` is asked for. Typically `names
 Logs the request to outstream in the Common Log Format when the response is written. Defaults to stdout if not provided.
 
 
+### gulphttpd.request(fn)
+
+Calls `fn(file, req, res, next)` on every request so you can conduct HTTP-specific logic on an HTTP request. For instance, setting CORS headers or setting Content-Type based on the filename.
+
+Call `next()` to pass the request along in the pipeline, or pass an error argument to trigger an error.
+
+
+
 ### gulphttpd.setHeader(name, value)
 
 Calls response.setHeader on every HTTP request going through. Useful for setting the Content-Type, Server, or similar headers.
