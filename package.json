@@ -1,0 +1,7 @@
+{ "name":"gulp-http-server"
+, "tags":["gulpfriendly"]
+, "dependencies":
+	{ "through2":"*"
+	, "vinyl":"*"
+	}
+}
