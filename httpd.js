@@ -10,6 +10,7 @@ server.listen(listenPort);
 gulphttpd.src(server, __dirname+'/', '/')
 	.pipe(gulphttpd.log(process.stdout))
 	.pipe(require('gulp-markdown')())
+	.pipe(gulphttpd.setHeader('Content-Type', 'text/html'))
 	.pipe(gulphttpd.dest());
 
 console.log('Listening on port '+listenPort);
